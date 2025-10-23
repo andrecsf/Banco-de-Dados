@@ -217,13 +217,28 @@ select i.nome_instrumento "Instrumento",
     having count(mfs.id_musico) > 0
     order by i.nome_instrumento, count(mfs.id_musico) desc;
 
--- Relatório de mulheres por orquestra
+-- Relatório de mulheres brasileiras por orquestra
 select o.nome "Orquestra",
-	sum(case when m.nome like "%a %" then 1 else 0 end) "Quantidade de Mulheres",
-    group_concat(case when m.nome like "%a %" then m.nome else null end separator ", ") "Nomes"
+	count(*) "Quantidade de Mulheres",
+    group_concat(m.nome order by m.nome separator ", ") "Nomes"
     from musico m
     inner join orquestra o on m.id_orquestra = o.id_orquestra
+    where m.nacionalidade = "Brasileira"
     group by o.id_orquestra, o.nome
-    having sum(case when m.nome like "%a %" then 1 else 0 end) > 0
-    order by sum(case when m.nome like "%a %" then 1 else 0 end) desc;
-	
+    having count(*) > 0 
+    order by count(*) desc;
+
+-- Relatório de homens europeus por orquestra
+select o.nome "Orquestra",
+	count(*) "Quantidade de Homens Europeus",
+    group_concat(m.nome order by m.nome separator ", ") "Nomes"
+    from musico m
+    inner join orquestra o on m.id_orquestra = o.id_orquestra
+    where m.nacionalidade in ("Alemão", "Inglês", "Francês", "Italiano", "Português", "Austríaco", "Russo")
+    group by o.id_orquestra, o.nome
+    having count(*) > 0 
+    order by count(*) desc;	
+
+
+
+
