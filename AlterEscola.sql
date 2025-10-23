@@ -26,7 +26,7 @@ alter table orquestra
     
 -- Adicionar valor padrão para data
 alter table musico_funcao_sinfonia
-	modify column data_assumicao date default current_timestamp;
+	modify column data_assumicao datetime default current_timestamp;
     
 -- Renomear tabela Função
 alter table funcao
