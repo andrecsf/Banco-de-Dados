@@ -2,7 +2,7 @@
 
 -- Adicionar email para os músicos
 alter table musico 
-	add column email varchar(100);
+	add column email varchar(100) default '';
     
 -- Tornar campo email obrigatório
 alter table musico
