@@ -152,12 +152,12 @@ create view musicos_multinstrumentalistas as
 -- Instrumentos Mais Populares
 create view instrumentos_populares as
 	select i.nome_instrumento "Instrumento",
-    count(distinct mi.id_musico) "Total de Músicos",
-    round(count(distinct mi.id_musico) * 100.0 / (select count(distinct id_musico) from
-    musico_instrumento), 1) "Percentual"
-    from instrumento i
-    left join musico_instrumento mi on i.id_instrumento = mi.id_instrumento
-		group by i.id_instrumento, i.nome_instrumento
-			order by count(distinct mi.id_musico) desc;
+   		count(distinct mi.id_musico) "Total de Músicos",
+    	round(count(distinct mi.id_musico) * 100.0 / (select count(distinct id_musico) from
+    	musico_instrumento), 1) "Percentual"
+    	from instrumento i
+    	left join musico_instrumento mi on i.id_instrumento = mi.id_instrumento
+			group by i.id_instrumento, i.nome_instrumento
+				order by count(distinct mi.id_musico) desc;
             
-	select * from instrumentos_populares;
+		select * from instrumentos_populares;
