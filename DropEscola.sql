@@ -9,5 +9,6 @@ drop table if exists sinfonia;
 drop table if exists funcao;
 drop table if exists instrumento;
 drop table if exists orquestra;
-drop database escolamusica;
 rollback;
+
+drop database escolamusica;
