@@ -3,7 +3,7 @@ Repositório do Banco de Dados da atividade da cadeira de Banco de Dados II - Fa
 
 # 🎵 Banco de Dados: Escola de Música
 
-Este projeto modela o banco de dados de uma **escola de música**, com informações sobre orquestras, músicos, sinfonias, instrumentos e suas funções.
+Este projeto modela o banco de dados de uma **escola de música**, com informações sobre orquestras, músicos, sinfonias, instrumentos e funções dos músicos.
 
 ---
 
